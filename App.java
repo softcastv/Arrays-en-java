@@ -1,113 +1,90 @@
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class App {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         boolean salir = false;
+
         while (!salir) {
             int ejercicioSeleccionado = menu();
+
             switch (ejercicioSeleccionado) {
-                case 0: // salir
-                    salir = true;
-                    break;
-                case 1:
-                    ejercicio1();
-                    break;
-                case 2:
-                    ejercicio2();
-                    break;
-                case 3:
-                    ejercicio3();
-                    break;
-                case 4:
-                    ejercicio4();
-                    break;
-                case 5:
-                    ejercicio5();
-                    break;
-                case 6:
-                    ejercicio6();
-                    break;
-                case 8:
-                    ejercicio8();
-                    break;
-                case 9:
-                    ejercicio9();
-                    break;
-                case 11:
-                    ejercicio11();
-                    break;
-                case 12:
-                    ejercicio12();
-                    break;
-                case 13:
-                    ejercicio13();
-                    break;
-                case 14:
-                    ejercicio14();
-                    break;
-                case 15:
-                    ejercicio15();
-                    break;
-                case 16:
-                    ejercicio16();
-                    break;
-                case 17:
-                    ejercicio17();
-                    break;
-                case 18:
-                    ejercicio18();
-                    break;
-                case 19:
-                    ejercicio19();
-                    break;
-                case 20:
-                    ejercicio20();
-                    break;
+                case 0: salir = true; break;
+                case 1: ejercicio1(); break;
+                case 2: ejercicio2(); break;
+                case 3: ejercicio3(); break;
+                case 4: ejercicio4(); break;
+                case 5: ejercicio5(); break;
+                case 6: ejercicio6(); break;
+                case 7: ejercicio7(); break;
+                case 8: ejercicio8(); break;
+                case 9: ejercicio9(); break;
+                case 10: ejercicio10(); break;
+                case 11: ejercicio11(); break;
+                case 12: ejercicio12(); break;
+                case 13: ejercicio13(); break;
+                case 14: ejercicio14(); break;
+                case 15: ejercicio15(); break;
+                case 16: ejercicio16(); break;
+                case 17: ejercicio17(); break;
+                case 18: ejercicio18(); break;
+                case 19: ejercicio19(); break;
+                case 20: ejercicio20(); break;
                 default:
-                    System.out.println("opcion invalida");
+                    System.out.println("Opcion invalida.");
                     break;
             }
 
             if (!salir) {
-                System.out.println("Pulsa enter para continuar");
-                sc.nextLine();
+                pausa();
             }
         }
 
+        System.out.println("\nHasta pronto");
     }
 
     public static int menu() {
-        System.out.println("Ejercicios con Arrays");
-        System.out.println("Selecciona cual ejercicio deseas ejecutar(1-14). Pulsa 0 para salir");
-        System.out.println("\t1- ");
-        System.out.println("\t2- ");
-        System.out.println("\t3- ");
-        System.out.println("\t4- ");
-        System.out.println("\t5- ");
-        System.out.println("\t6- ");
-        System.out.println("\t7-");
-        System.out.println("\t8-");
-        System.out.println("\t9-");
-        System.out.println("\t10-");
-        System.out.println("\t11-");
-        System.out.println("\t12-");
-        System.out.println("\t13-");
-        System.out.println("\t14-");
-        System.out.println("\t15-");
-        System.out.println("\t16-");
-        System.out.println("\t17-");
-        System.out.println("\t18-");
-        System.out.println("\t19-");
-        System.out.println("\t20-");
+        System.out.println("\n==================================================");
+        System.out.println("                 JAVA ARRAYS ");
+        System.out.println("==================================================");
+        System.out.println("  1. Leer y mostrar 10 numeros reales");
+        System.out.println("  2. Sumar 10 numeros reales");
+        System.out.println("  3. Encontrar maximo y minimo");
+        System.out.println("  4. Sumar positivos y negativos");
+        System.out.println("  5. Calcular la media de 20 numeros");
+        System.out.println("  6. Rellenar un array con un mismo valor");
+        System.out.println("  7. Crear un array desde P hasta Q");
+        System.out.println("  8. Contar aleatorios iguales o superiores a R");
+        System.out.println("  9. Buscar posiciones de un numero aleatorio");
+        System.out.println(" 10. Estadisticas de alturas");
+        System.out.println(" 11. Copiar un array en orden inverso");
+        System.out.println(" 12. Menu para mostrar e introducir valores");
+        System.out.println(" 13. Crear una secuencia aritmetica");
+        System.out.println(" 14. Crear una secuencia repetida (bucles)");
+        System.out.println(" 15. Rellenar un array con Arrays.fill()");
+        System.out.println(" 16. Crear una secuencia repetida (Arrays.fill)");
+        System.out.println(" 17. Comparar dos arrays");
 
-        int ejercicioSeleccionado = auxLeerEnteroRango(0, 20);
+        System.out.println(" 18. Ordenar 30 numeros aleatorios");
+        System.out.println(" 19. Ranking de puntuaciones de ajedrez");
+        System.out.println(" 20. Contar apariciones de un numero");
+        System.out.println("--------------------------------------------------");
+        System.out.println("  0. SALIR");
+        System.out.println("==================================================");
+        System.out.print("Selecciona un ejercicio (0-20): ");
 
-        return ejercicioSeleccionado;
+        return auxLeerEnteroRango(0, 20);
+    }
+
+    public static void pausa() {
+        // Consume el salto de linea pendiente si se ha utilizado nextInt/nextDouble.
+        sc.skip("\\R?");
+        System.out.println();
+        System.out.print("Pulsa ENTER para volver al menu...");
+        sc.nextLine();
     }
 
     public static int auxLeerEnteroRango(int minimo, int maximo) {
@@ -170,7 +147,6 @@ public class App {
             System.out.println("Numero " + (i + 1) + ": " + numeros_reales[i]);
         }
 
-        sc.close();
 
     }
 
@@ -188,12 +164,10 @@ public class App {
 
         System.out.println("Ingrese 10 numeros reales");
 
-        for (int i = 0; i < numeros_reales.length; i++) { /* Rellenar un array */
+        for (int i = 0; i < numeros_reales.length; i++) { 
             numeros_reales[i] = sc.nextDouble();
 
         }
-
-        // mostrar la suma de los valores
 
         for (int i = 0; i < numeros_reales.length; i++) {
             total += numeros_reales[i];
@@ -201,7 +175,6 @@ public class App {
 
         System.out.println("La suma de los numeros reales es : " + total);
 
-        sc.close();
 
     }
 
@@ -217,7 +190,7 @@ public class App {
 
         System.out.println("Ingrese 10 numeros reales");
 
-        for (int i = 0; i < numeros.length; i++) { /* Rellenar un array */
+        for (int i = 0; i < numeros.length; i++) { 
             numeros[i] = sc.nextDouble();
 
         }
@@ -229,7 +202,7 @@ public class App {
 
     public static void maximo(double[] numeros) {
 
-        double maximo = Double.MIN_VALUE;
+        double maximo = numeros[0];
 
         for (int i = 0; i < numeros.length; i++) {
             if (numeros[i] > maximo) {
@@ -243,7 +216,7 @@ public class App {
 
     public static void minimo(double[] numeros) {
 
-        double minimo = Double.MAX_VALUE;
+        double minimo = numeros[0];
 
         for (int i = 0; i < numeros.length; i++) {
             if (numeros[i] < minimo) {
@@ -431,17 +404,26 @@ public class App {
         System.out.println("Ingrese un valor para establecer el array");
         int N = sc.nextInt();
 
+        if (N <= 0) {
+            System.out.println("El numero de personas debe ser mayor que cero.");
+            return;
+        }
+
         double[] alturas = new double[N];
         double media;
-        int cont_encima = 0, cont_debajo = 0, suma_valor = 0;
-        double maximo = Double.MIN_VALUE;
-        double minimo = Double.MAX_VALUE;
+        int cont_encima = 0, cont_debajo = 0;
+        double suma_valor = 0;
+        double maximo;
+        double minimo;
 
         for (int i = 0; i < alturas.length; i++) {
+            System.out.print("Altura de la persona " + (i + 1) + ": ");
             alturas[i] = sc.nextDouble();
             suma_valor += alturas[i];
         }
 
+        maximo = alturas[0];
+        minimo = alturas[0];
         media = suma_valor / N;
 
         for (int i = 0; i < alturas.length; i++) {
@@ -553,11 +535,11 @@ public class App {
                     }
 
                     array[posicion] = valor;
-                    System.out.println("Valor introducido!");
+                    System.out.println("Valor introducido");
                     break;
 
                 case 'C':
-                    System.out.println("Hasta luego!");
+                    System.out.println("Hasta luego");
                     break;
 
                 default:
@@ -566,9 +548,6 @@ public class App {
             }
 
         } while (opcion != 'C');
-        System.out.println("Pulsa enter para continuar");
-        sc.nextLine();
-
     }
 
     /*
@@ -621,15 +600,17 @@ public class App {
 
     public static void ejercicio14() {
 
-        int[] array = new int[11];
+        int[] array = new int[55];
+        int posicion = 0;
 
-        for (int i = 1; i < array.length; i++) {
+        for (int i = 1; i <= 10; i++) {
             for (int j = 1; j <= i; j++) {
-                System.out.println(i + "");
-
+                array[posicion] = i;
+                posicion++;
             }
-
         }
+
+        System.out.println(Arrays.toString(array));
 
     }
 
@@ -664,39 +645,42 @@ public class App {
 
     public static void ejercicio16() {
 
-        int[] array = new int[11];
+        int[] array = new int[55];
+        int posicion = 0;
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j <= i; j++) {
-                Arrays.fill(array, j);
-            }
+        for (int numero = 1; numero <= 10; numero++) {
+            Arrays.fill(array, posicion, posicion + numero, numero);
+            posicion += numero;
         }
+
         System.out.println(Arrays.toString(array));
 
     }
 
-    /*Crea un programa que pida al usuario 20 valores enteros e introduzca los 10 primeros en un
-    array y los 10 últimos en otro array. Por último, comparará ambos arrays y le dirá al usuario
-    si son iguales o no */
-
+    /*
+     * Crea un programa que pida al usuario 20 valores enteros e introduzca los 10
+     * primeros en un
+     * array y los 10 últimos en otro array. Por último, comparará ambos arrays y le
+     * dirá al usuario
+     * si son iguales o no
+     */
 
     public static void ejercicio17() {
 
-         int[] array1 = new int[10];
+        int[] array1 = new int[10];
         int[] array2 = new int[10];
 
         System.out.println("Ingrese 20 valores enteros");
-        for(int i = 0 ; i < 20 ; i++){
-            System.out.print((i+1) + ". ");
+        for (int i = 0; i < 20; i++) {
+            System.out.print((i + 1) + ". ");
             int valor = sc.nextInt();
 
-            if(i < 10){
+            if (i < 10) {
                 array1[i] = valor;
 
-            }else{
+            } else {
                 array2[i - 10] = valor;
             }
-            
 
         }
         System.out.println("Primer array");
@@ -713,21 +697,115 @@ public class App {
 
     }
 
-    /*Crea un programa que cree un array de tamaño 30 y lo rellene con valores aleatorios entre 0
-    y 9 (utiliza Math.random()*10). Luego ordena los valores del array y los mostrará por
-    pantalla */
+    /*
+     * Crea un programa que cree un array de tamaño 30 y lo rellene con valores
+     * aleatorios entre 0
+     * y 9 (utiliza Math.random()*10). Luego ordena los valores del array y los
+     * mostrará por
+     * pantalla
+     */
 
     public static void ejercicio18() {
 
         int[] array = new int[30];
 
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 10);
+        }
+
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+
+                    int auxiliar = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = auxiliar;
+
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(array));
+
     }
+
+    /*
+     * Necesitamos crear un programa para mostrar el ranking de puntuaciones de un
+     * torneo de
+     * ajedrez con 8 jugadores. Se le pedirá al usuario que introduzca las
+     * puntuaciones de todos los
+     * jugadores (habitualmente valores entre 1000 y 2800, de tipo entero) y luego
+     * muestre las
+     * puntuaciones en orden descendente (de la más alta a la más baja).
+     */
 
     public static void ejercicio19() {
+        int[] puntuaciones = new int[8];
+
+        for (int i = 0; i < puntuaciones.length; i++) {
+
+            System.out.println("Puntuacion del jugador " + (i + 1));
+            puntuaciones[i] = sc.nextInt();
+
+        }
+
+        for (int i = 0; i < puntuaciones.length - 1; i++) {
+            for (int j = 0; j < puntuaciones.length - 1 - i; j++) {
+                if (puntuaciones[j] < puntuaciones[j + 1]) {
+                    int auxiliar = puntuaciones[j];
+                    puntuaciones[j] = puntuaciones[j + 1];
+                    puntuaciones[j + 1] = auxiliar;
+
+                }
+            }
+        }
+
+        System.out.println(" RANKING DE AJEDREZ ");
+
+        for (int i = 0; i < puntuaciones.length; i++) {
+
+            System.out.println((i + 1) + ". " + puntuaciones[i] + " puntos");
+
+        }
 
     }
 
+    /*
+     * Crea un programa que cree un array de tamaño 1000 y lo rellene con valores
+     * enteros
+     * aleatorios entre 0 y 99 (utiliza Math.random()*100). Luego pedirá por teclado
+     * un valor N y se
+     * mostrará por pantalla si N existe en el array, además de cuantas veces.
+     */
+
     public static void ejercicio20() {
+        int[] array = new int[1000];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 100);
+
+        }
+
+        System.out.println("Introduce un numero entre 0 y 99:");
+        int N = sc.nextInt();
+
+        int contador = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == N) {
+                contador++;
+
+            }
+        }
+
+        if (contador > 0) {
+            System.out.println("El numero " + N + " existe en el array.");
+            System.out.println("Aparece " + contador + " veces.");
+
+        } else {
+            System.out.println("El numero " + N + " no existe en el array.");
+
+        }
 
     }
 }
